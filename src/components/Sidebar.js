@@ -14,7 +14,9 @@ import {
   ChevronDown,
   LogOut,
   Zap,
-  Sparkles
+  Sparkles,
+  Menu,
+  X
 } from 'lucide-react';
 import { CURRENT_USER, QUICK_STATS } from '@/data/mockData';
 
@@ -52,13 +54,57 @@ export default function Sidebar() {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   return (
-    <aside className={`sidebar-container ${mounted ? 'mounted' : ''}`}>
+    <>
+      {/* Mobile Header */}
+      <div className="mobile-header">
+        <div className="mobile-logo">
+          <div className="mobile-logo-icon">
+            <Zap size={18} strokeWidth={2.5} />
+          </div>
+          <span className="mobile-logo-text">Bison</span>
+        </div>
+        <button 
+          className="mobile-menu-btn"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Overlay */}
+      {isMobileMenuOpen && (
+        <div 
+          className="mobile-overlay" 
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
+      <aside className={`sidebar-container ${mounted ? 'mounted' : ''} ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
       {/* Glass shine effect */}
       <div className="sidebar-shine" />
       
@@ -610,10 +656,102 @@ export default function Sidebar() {
 
         @media (max-width: 1024px) {
           .sidebar-container {
-            display: none;
+            display: flex;
+            position: fixed;
+            left: -300px;
+            top: 0;
+            height: 100vh;
+            width: 280px;
+            border-radius: 0 1.25rem 1.25rem 0;
+            z-index: 100;
+            transition: left 0.3s ease;
+          }
+
+          .sidebar-container.mobile-open {
+            left: 0;
+          }
+        }
+
+        /* Mobile Header Styles */
+        .mobile-header {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 60px;
+          background: rgba(10, 15, 26, 0.95);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          z-index: 90;
+          padding: 0 1rem;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .mobile-logo {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .mobile-logo-icon {
+          width: 32px;
+          height: 32px;
+          background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+          border-radius: 0.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+        }
+
+        .mobile-logo-text {
+          font-size: 1.125rem;
+          font-weight: 800;
+          color: #f1f5f9;
+          letter-spacing: -0.02em;
+        }
+
+        .mobile-menu-btn {
+          width: 44px;
+          height: 44px;
+          border-radius: 0.75rem;
+          background: rgba(255, 255, 255, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          color: #f1f5f9;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .mobile-menu-btn:hover {
+          background: rgba(255, 255, 255, 0.12);
+        }
+
+        .mobile-overlay {
+          display: none;
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.6);
+          backdrop-filter: blur(4px);
+          z-index: 95;
+        }
+
+        @media (max-width: 1024px) {
+          .mobile-header {
+            display: flex;
+          }
+
+          .mobile-overlay {
+            display: block;
           }
         }
       `}</style>
     </aside>
+    </>
   );
 }

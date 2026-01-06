@@ -131,6 +131,57 @@ function SettingsNav({ activeSection, onSectionChange }) {
         .nav-item.active .chevron {
           opacity: 1;
         }
+
+        @media (max-width: 1024px) {
+          .settings-nav {
+            width: 240px;
+            padding: 1.25rem;
+          }
+
+          .nav-item {
+            padding: 0.75rem 0.875rem;
+            font-size: 0.8125rem;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .settings-nav {
+            width: 100%;
+            padding: 1rem;
+          }
+
+          .nav-items {
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+          }
+
+          .nav-item {
+            flex: 1;
+            min-width: calc(50% - 0.25rem);
+            justify-content: center;
+            padding: 0.75rem 0.5rem;
+          }
+
+          .nav-item span {
+            display: none;
+          }
+
+          .chevron {
+            display: none;
+          }
+
+          .nav-header {
+            display: none;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .nav-item {
+            min-width: calc(33.333% - 0.35rem);
+            padding: 0.625rem 0.375rem;
+          }
+        }
       `}</style>
     </div>
   );
@@ -326,6 +377,32 @@ function ProfileSection() {
           transform: translateY(-2px);
           box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45);
         }
+
+        @media (max-width: 768px) {
+          .form-row {
+            grid-template-columns: 1fr;
+          }
+
+          .section-header h2 {
+            font-size: 1.125rem;
+          }
+
+          .save-btn {
+            width: 100%;
+            justify-content: center;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .form-input, .form-select {
+            padding: 0.75rem 0.875rem;
+            font-size: 0.875rem;
+          }
+
+          .role-display {
+            flex-wrap: wrap;
+          }
+        }
       `}</style>
     </div>
   );
@@ -422,8 +499,8 @@ function NotificationsSection({ settings, onChange }) {
           justify-content: space-between;
           align-items: center;
           padding: 1rem 1.25rem;
-          background: rgba(255, 255, 255, 0.7);
-          border: 1px solid rgba(255, 255, 255, 0.9);
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 0.875rem;
         }
 
@@ -431,6 +508,20 @@ function NotificationsSection({ settings, onChange }) {
           font-size: 0.9375rem;
           font-weight: 500;
           color: var(--text-primary);
+        }
+
+        @media (max-width: 768px) {
+          .section-header h2 {
+            font-size: 1.125rem;
+          }
+
+          .notification-item {
+            padding: 0.875rem 1rem;
+          }
+
+          .item-label {
+            font-size: 0.875rem;
+          }
         }
       `}</style>
     </div>
@@ -541,8 +632,8 @@ function SLASection() {
           align-items: center;
           gap: 1rem;
           padding: 1.25rem;
-          background: rgba(255, 255, 255, 0.7);
-          border: 1px solid rgba(255, 255, 255, 0.9);
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 1rem;
         }
 
@@ -595,8 +686,8 @@ function SLASection() {
         .sla-input {
           width: 80px;
           padding: 0.625rem 0.75rem;
-          background: rgba(255, 255, 255, 0.9);
-          border: 1px solid rgba(0, 0, 0, 0.08);
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 0.625rem;
           font-size: 1rem;
           font-weight: 700;
@@ -677,6 +768,39 @@ function SLASection() {
         .save-btn:hover {
           transform: translateY(-2px);
           box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45);
+        }
+
+        @media (max-width: 768px) {
+          .section-header h2 {
+            font-size: 1.125rem;
+          }
+
+          .sla-card {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.75rem;
+          }
+
+          .sla-value {
+            width: 100%;
+            justify-content: flex-end;
+          }
+
+          .save-btn {
+            width: 100%;
+            justify-content: center;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .sla-card {
+            padding: 1rem;
+          }
+
+          .sla-icon {
+            width: 40px;
+            height: 40px;
+          }
         }
       `}</style>
     </div>
@@ -856,8 +980,8 @@ function CRMSection() {
         .form-input {
           width: 100%;
           padding: 0.875rem 1rem;
-          background: rgba(255, 255, 255, 0.8);
-          border: 1px solid rgba(0, 0, 0, 0.08);
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 0.75rem;
           font-size: 0.9375rem;
           color: var(--text-primary);
@@ -867,7 +991,7 @@ function CRMSection() {
 
         .form-input:focus {
           border-color: #3b82f6;
-          box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
         }
 
         .api-key-wrapper {
@@ -925,15 +1049,15 @@ function CRMSection() {
           align-items: center;
           gap: 0.625rem;
           padding: 0.875rem 1rem;
-          background: rgba(255, 255, 255, 0.7);
-          border: 1px solid rgba(255, 255, 255, 0.9);
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 0.75rem;
           cursor: pointer;
           transition: all 0.2s ease;
         }
 
         .event-item:hover {
-          background: rgba(255, 255, 255, 0.9);
+          background: rgba(255, 255, 255, 0.08);
         }
 
         .event-checkbox {
@@ -967,6 +1091,36 @@ function CRMSection() {
         .save-btn:hover {
           transform: translateY(-2px);
           box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45);
+        }
+
+        @media (max-width: 768px) {
+          .section-header h2 {
+            font-size: 1.125rem;
+          }
+
+          .connection-status {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.75rem;
+          }
+
+          .test-btn {
+            width: 100%;
+            justify-content: center;
+          }
+
+          .form-row {
+            grid-template-columns: 1fr;
+          }
+
+          .event-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .save-btn {
+            width: 100%;
+            justify-content: center;
+          }
         }
       `}</style>
     </div>
@@ -1036,8 +1190,8 @@ function RolesSection() {
 
         .role-card {
           padding: 1.25rem;
-          background: rgba(255, 255, 255, 0.7);
-          border: 1px solid rgba(255, 255, 255, 0.9);
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 1rem;
         }
 
@@ -1092,6 +1246,21 @@ function RolesSection() {
           background: rgba(59, 130, 246, 0.1);
           color: #3b82f6;
           border-radius: 0.375rem;
+        }
+
+        @media (max-width: 768px) {
+          .section-header h2 {
+            font-size: 1.125rem;
+          }
+
+          .role-card {
+            padding: 1rem;
+          }
+
+          .role-icon {
+            width: 38px;
+            height: 38px;
+          }
         }
       `}</style>
     </div>
@@ -1186,8 +1355,8 @@ function SystemSection() {
           justify-content: space-between;
           align-items: center;
           padding: 1.25rem;
-          background: rgba(255, 255, 255, 0.7);
-          border: 1px solid rgba(255, 255, 255, 0.9);
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 0.875rem;
         }
 
@@ -1212,8 +1381,8 @@ function SystemSection() {
 
         .option-select {
           padding: 0.625rem 1rem;
-          background: rgba(255, 255, 255, 0.9);
-          border: 1px solid rgba(0, 0, 0, 0.08);
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 0.625rem;
           font-size: 0.875rem;
           color: var(--text-primary);
@@ -1223,6 +1392,32 @@ function SystemSection() {
 
         .option-select:focus {
           border-color: #3b82f6;
+        }
+
+        @media (max-width: 768px) {
+          .section-header h2 {
+            font-size: 1.125rem;
+          }
+
+          .option-item {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+          }
+
+          .option-select {
+            width: 100%;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .option-item {
+            padding: 1rem;
+          }
+
+          .option-label {
+            font-size: 0.875rem;
+          }
         }
       `}</style>
     </div>
@@ -1310,6 +1505,40 @@ export default function SettingsPage() {
           flex: 1;
           padding: 2rem;
           border-radius: 1.5rem;
+        }
+
+        @media (max-width: 1024px) {
+          .settings-container {
+            gap: 1rem;
+          }
+
+          .settings-content {
+            padding: 1.5rem;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .page-title {
+            font-size: 1.5rem;
+          }
+
+          .settings-container {
+            flex-direction: column;
+          }
+
+          .settings-content {
+            padding: 1.25rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .page-title {
+            font-size: 1.25rem;
+          }
+
+          .settings-content {
+            padding: 1rem;
+          }
         }
       `}</style>
     </div>

@@ -254,6 +254,69 @@ function TopPerformerBanner({ performer }) {
           font-size: 0.875rem;
           border: 1px solid rgba(249, 115, 22, 0.2);
         }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+          .top-performer-banner {
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+          }
+
+          .banner-content {
+            flex-direction: column;
+            gap: 1.25rem;
+            text-align: center;
+          }
+
+          .performer-avatar-wrapper {
+            margin: 0 auto;
+          }
+
+          .performer-avatar {
+            width: 80px;
+            height: 80px;
+            font-size: 2rem;
+          }
+
+          .performer-name {
+            font-size: 1.5rem;
+          }
+
+          .performer-stats {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+          }
+
+          .performer-stat {
+            flex: 1 1 40%;
+            min-width: 80px;
+          }
+
+          .streak-badge {
+            margin: 0 auto;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .performer-avatar {
+            width: 64px;
+            height: 64px;
+            font-size: 1.5rem;
+          }
+
+          .performer-name {
+            font-size: 1.25rem;
+          }
+
+          .performer-stats {
+            gap: 0.75rem;
+          }
+
+          .stat-value {
+            font-size: 1.25rem;
+          }
+        }
       `}</style>
     </div>
   );
@@ -1011,6 +1074,41 @@ export default function PerformancePage() {
           display: flex;
           flex-direction: column;
           gap: 1rem;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+          .page-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+          }
+
+          .page-title {
+            font-size: 1.5rem;
+          }
+
+          .timeframe-toggle {
+            width: 100%;
+            justify-content: space-around;
+          }
+
+          .toggle-btn {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .page-title {
+            font-size: 1.25rem;
+          }
+
+          .toggle-btn {
+            font-size: 0.75rem;
+          }
         }
       `}</style>
     </div>

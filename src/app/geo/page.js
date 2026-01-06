@@ -165,6 +165,33 @@ function GeoSummaryCards() {
           color: #7c3aed;
           border-radius: 9999px;
         }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 1024px) {
+          .summary-cards {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        @media (max-width: 640px) {
+          .summary-cards {
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+          }
+
+          .summary-card {
+            padding: 1rem;
+          }
+
+          .card-icon {
+            width: 40px;
+            height: 40px;
+          }
+
+          .card-value {
+            font-size: 1.25rem;
+          }
+        }
       `}</style>
     </div>
   );
@@ -357,6 +384,62 @@ function CityHeatmapGrid() {
           gap: 0.25rem;
           font-size: 0.75rem;
           color: var(--text-tertiary);
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 1024px) {
+          .heatmap-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+
+        @media (max-width: 768px) {
+          .heatmap-section {
+            padding: 1.25rem;
+          }
+
+          .section-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.75rem;
+          }
+
+          .header-actions {
+            width: 100%;
+          }
+
+          .heatmap-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+          }
+
+          .city-tile {
+            padding: 0.875rem;
+          }
+
+          .tile-heat {
+            width: 60px;
+            height: 60px;
+          }
+
+          .heat-number {
+            font-size: 1.25rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .heatmap-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+
+          .tile-heat {
+            width: 56px;
+            height: 56px;
+          }
+
+          .city-name {
+            font-size: 0.8125rem;
+          }
         }
       `}</style>
     </div>
@@ -842,6 +925,40 @@ export default function GeoPage() {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 1.5rem;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 1024px) {
+          .bottom-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .page-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+          }
+
+          .page-title {
+            font-size: 1.5rem;
+          }
+
+          .header-actions {
+            width: 100%;
+          }
+
+          .refresh-btn {
+            flex: 1;
+            justify-content: center;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .page-title {
+            font-size: 1.25rem;
+          }
         }
       `}</style>
     </div>

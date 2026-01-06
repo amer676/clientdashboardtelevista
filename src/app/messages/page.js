@@ -322,6 +322,48 @@ function ConversationList({ conversations, selectedId, onSelect }) {
           flex-shrink: 0;
           margin-top: 0.375rem;
         }
+
+        @media (max-width: 1024px) {
+          .conversation-list {
+            width: 280px;
+          }
+
+          .conv-avatar {
+            width: 38px;
+            height: 38px;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .conversation-list {
+            width: 100%;
+            max-height: 40vh;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .list-header {
+            padding: 1rem;
+          }
+
+          .conversation-item {
+            padding: 0.75rem;
+          }
+
+          .conv-avatar {
+            width: 36px;
+            height: 36px;
+            font-size: 0.75rem;
+          }
+
+          .conv-name {
+            font-size: 0.8125rem;
+          }
+
+          .conv-preview {
+            font-size: 0.75rem;
+          }
+        }
       `}</style>
     </div>
   );
@@ -514,8 +556,8 @@ function MessageThread({ conversation }) {
           justify-content: space-between;
           align-items: center;
           padding: 1.25rem 1.5rem;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-          background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, transparent 100%);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
         }
 
         .header-left {
@@ -593,7 +635,7 @@ function MessageThread({ conversation }) {
         }
 
         .action-btn:hover {
-          background: rgba(0, 0, 0, 0.04);
+          background: rgba(255, 255, 255, 0.08);
           color: var(--text-primary);
         }
 
@@ -601,8 +643,8 @@ function MessageThread({ conversation }) {
           display: flex;
           gap: 1rem;
           padding: 0.875rem 1.5rem;
-          background: rgba(139, 92, 246, 0.04);
-          border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+          background: rgba(139, 92, 246, 0.08);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .context-item {
@@ -670,7 +712,7 @@ function MessageThread({ conversation }) {
         }
 
         .message.received .message-content {
-          background: rgba(0, 0, 0, 0.04);
+          background: rgba(255, 255, 255, 0.08);
           color: var(--text-primary);
           border-bottom-left-radius: 0.375rem;
         }
@@ -704,8 +746,8 @@ function MessageThread({ conversation }) {
           align-items: center;
           gap: 0.75rem;
           padding: 1rem 1.5rem;
-          border-top: 1px solid rgba(0, 0, 0, 0.04);
-          background: rgba(255, 255, 255, 0.5);
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          background: rgba(255, 255, 255, 0.03);
         }
 
         .compose-actions {
@@ -728,7 +770,7 @@ function MessageThread({ conversation }) {
         }
 
         .compose-btn:hover {
-          background: rgba(0, 0, 0, 0.04);
+          background: rgba(255, 255, 255, 0.08);
           color: var(--text-secondary);
         }
 
@@ -739,8 +781,8 @@ function MessageThread({ conversation }) {
         .compose-input {
           width: 100%;
           padding: 0.75rem 1rem;
-          background: rgba(255, 255, 255, 0.8);
-          border: 1px solid rgba(0, 0, 0, 0.06);
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 1rem;
           font-size: 0.9375rem;
           color: var(--text-primary);
@@ -749,8 +791,8 @@ function MessageThread({ conversation }) {
         }
 
         .compose-input:focus {
-          background: white;
-          border-color: rgba(245, 158, 11, 0.3);
+          background: rgba(255, 255, 255, 0.08);
+          border-color: rgba(59, 130, 246, 0.5);
         }
 
         .compose-input::placeholder {
@@ -775,6 +817,73 @@ function MessageThread({ conversation }) {
         .send-btn:hover {
           transform: scale(1.05);
           box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45);
+        }
+
+        @media (max-width: 768px) {
+          .thread-header {
+            padding: 1rem;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+          }
+
+          .thread-avatar {
+            width: 40px;
+            height: 40px;
+            font-size: 0.8125rem;
+          }
+
+          .thread-info h3 {
+            font-size: 0.9375rem;
+          }
+
+          .priority-badge {
+            margin-right: 0;
+            font-size: 0.6875rem;
+            padding: 0.25rem 0.5rem;
+          }
+
+          .context-bar {
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+          }
+
+          .messages-area {
+            padding: 1rem;
+          }
+
+          .message {
+            max-width: 85%;
+          }
+
+          .compose-area {
+            padding: 0.75rem 1rem;
+            gap: 0.5rem;
+          }
+
+          .compose-actions {
+            display: none;
+          }
+
+          .send-btn {
+            width: 40px;
+            height: 40px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .message-content {
+            padding: 0.75rem 1rem;
+          }
+
+          .message-content p {
+            font-size: 0.875rem;
+          }
+
+          .compose-input {
+            padding: 0.625rem 0.875rem;
+            font-size: 0.875rem;
+          }
         }
       `}</style>
     </div>
@@ -867,6 +976,37 @@ export default function MessagesPage() {
           display: flex;
           gap: 1.5rem;
           min-height: 0;
+        }
+
+        @media (max-width: 1024px) {
+          .messages-container {
+            gap: 1rem;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .page-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+          }
+
+          .page-title {
+            font-size: 1.5rem;
+          }
+
+          .header-actions {
+            width: 100%;
+          }
+
+          .new-message-btn {
+            width: 100%;
+            justify-content: center;
+          }
+
+          .messages-container {
+            flex-direction: column;
+          }
         }
       `}</style>
     </div>

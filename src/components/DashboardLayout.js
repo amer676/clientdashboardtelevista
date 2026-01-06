@@ -171,10 +171,20 @@ export default function DashboardLayout({ children }) {
             margin-left: 0;
             width: 100%;
             padding: 1rem;
+            padding-top: 76px; /* Account for mobile header */
+            padding-bottom: 80px;
           }
           
           .glow-spot {
             opacity: 0.5;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .main-content {
+            padding: 0.75rem;
+            padding-top: 72px;
+            padding-bottom: 70px;
           }
         }
 

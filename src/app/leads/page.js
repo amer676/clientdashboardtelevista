@@ -373,6 +373,52 @@ function LeadCard({ lead, isSelected, onClick }) {
           background: #3b82f6;
           color: white;
         }
+
+        /* Mobile responsive for LeadCard */
+        @media (max-width: 768px) {
+          .lead-card {
+            flex-wrap: wrap;
+            gap: 0.75rem;
+          }
+
+          .lead-main {
+            flex: 1 1 100%;
+            min-width: auto;
+          }
+
+          .lead-meta {
+            flex-direction: row;
+            gap: 0.5rem;
+          }
+
+          .lead-caller {
+            display: none;
+          }
+
+          .lead-time {
+            min-width: auto;
+          }
+
+          .lead-chevron {
+            display: none;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .lead-card {
+            padding: 0.875rem;
+          }
+
+          .lead-avatar {
+            width: 36px;
+            height: 36px;
+            font-size: 0.75rem;
+          }
+
+          .lead-name {
+            font-size: 0.875rem;
+          }
+        }
       `}</style>
     </div>
   );
@@ -818,6 +864,53 @@ function LeadDetailPanel({ lead, onClose, onAction }) {
           transform: translateY(-2px);
           box-shadow: 0 6px 20px rgba(59, 130, 246, 0.45);
         }
+
+        /* Mobile responsive for LeadDetailPanel */
+        @media (max-width: 1024px) {
+          .lead-detail-panel {
+            width: 100%;
+            max-height: 50vh;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .lead-detail-panel {
+            border-radius: 1.25rem;
+          }
+
+          .panel-header {
+            padding: 1.25rem;
+          }
+
+          .lead-name {
+            font-size: 1.25rem;
+          }
+
+          .lead-address {
+            font-size: 0.8125rem;
+          }
+
+          .panel-actions {
+            padding: 1rem;
+            gap: 0.5rem;
+          }
+
+          .action-btn {
+            padding: 0.75rem;
+            font-size: 0.75rem;
+          }
+
+          .info-grid {
+            grid-template-columns: 1fr;
+            padding: 0 1.25rem 1rem;
+          }
+
+          .meta-section {
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+          }
+        }
       `}</style>
     </div>
   );
@@ -1080,6 +1173,78 @@ export default function LeadsPage() {
           display: flex;
           flex-direction: column;
           gap: 0.625rem;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 1024px) {
+          .leads-container {
+            flex-direction: column;
+            height: auto;
+            min-height: auto;
+          }
+
+          .leads-list-section {
+            max-height: 60vh;
+          }
+
+          .leads-list-section.with-panel {
+            max-height: 40vh;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .page-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+          }
+
+          .page-title {
+            font-size: 1.5rem;
+          }
+
+          .header-stats {
+            width: 100%;
+            justify-content: space-between;
+          }
+
+          .stat-badge {
+            flex: 1;
+            padding: 0.625rem 0.75rem;
+          }
+
+          .list-toolbar {
+            flex-direction: column;
+            gap: 0.75rem;
+            padding: 1rem;
+          }
+
+          .search-box {
+            width: 100%;
+          }
+
+          .filter-group {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+          }
+
+          .filter-btn {
+            padding: 0.5rem 0.625rem;
+            font-size: 0.6875rem;
+            white-space: nowrap;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .page-title {
+            font-size: 1.25rem;
+          }
+
+          .leads-list {
+            padding: 0.75rem;
+            gap: 0.5rem;
+          }
         }
       `}</style>
     </div>

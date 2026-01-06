@@ -234,6 +234,41 @@ function ExecutiveSummary() {
           color: #059669;
           font-weight: 600;
         }
+
+        @media (max-width: 1024px) {
+          .summary-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        @media (max-width: 768px) {
+          .executive-summary {
+            padding: 1.25rem;
+          }
+
+          .summary-header {
+            flex-direction: column;
+            gap: 1rem;
+          }
+
+          .title {
+            font-size: 1.125rem;
+          }
+
+          .date-range {
+            width: fit-content;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .summary-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .stat-value {
+            font-size: 1.25rem;
+          }
+        }
       `}</style>
     </div>
   );
@@ -404,6 +439,42 @@ function MonthlyTrendChart() {
           font-size: 0.6875rem;
           font-weight: 600;
           color: var(--text-tertiary);
+        }
+
+        @media (max-width: 768px) {
+          .chart-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.75rem;
+          }
+
+          .chart-body {
+            height: 160px;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+          }
+
+          .bars {
+            height: 120px;
+          }
+
+          .bar {
+            width: 14px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .chart-card {
+            padding: 1rem;
+          }
+
+          .bar {
+            width: 10px;
+          }
+
+          .bar-label {
+            font-size: 0.5625rem;
+          }
         }
       `}</style>
     </div>
@@ -685,6 +756,33 @@ function GeoHeatmap() {
           font-size: 0.6875rem;
           color: var(--text-tertiary);
         }
+
+        @media (max-width: 768px) {
+          .city-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          .geo-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.75rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .geo-card {
+            padding: 1rem;
+          }
+
+          .city-heat {
+            width: 52px;
+            height: 52px;
+          }
+
+          .heat-value {
+            font-size: 1rem;
+          }
+        }
       `}</style>
     </div>
   );
@@ -766,14 +864,14 @@ function ReportTemplates() {
           justify-content: space-between;
           align-items: center;
           padding: 1rem;
-          background: rgba(255, 255, 255, 0.6);
-          border: 1px solid rgba(255, 255, 255, 0.8);
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 0.875rem;
           transition: all 0.2s ease;
         }
 
         .template-item:hover {
-          background: rgba(255, 255, 255, 0.8);
+          background: rgba(255, 255, 255, 0.08);
           transform: translateX(4px);
         }
 
@@ -867,6 +965,29 @@ function ReportTemplates() {
 
         .custom-btn:hover {
           background: rgba(245, 158, 11, 0.15);
+        }
+
+        @media (max-width: 768px) {
+          .templates-footer {
+            flex-direction: column;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .templates-card {
+            padding: 1rem;
+          }
+
+          .template-item {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.75rem;
+          }
+
+          .template-actions {
+            width: 100%;
+            justify-content: space-between;
+          }
         }
       `}</style>
     </div>
@@ -993,6 +1114,54 @@ export default function ReportsPage() {
           display: grid;
           grid-template-columns: 1.5fr 1fr;
           gap: 1.5rem;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 1024px) {
+          .charts-row {
+            grid-template-columns: 1fr;
+          }
+
+          .bottom-row {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .page-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+          }
+
+          .page-title {
+            font-size: 1.5rem;
+          }
+
+          .header-actions {
+            width: 100%;
+          }
+
+          .date-toggle {
+            width: 100%;
+            justify-content: space-around;
+          }
+
+          .toggle-btn {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem 0.75rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .page-title {
+            font-size: 1.25rem;
+          }
+
+          .toggle-btn {
+            font-size: 0.75rem;
+          }
         }
       `}</style>
     </div>

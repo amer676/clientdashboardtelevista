@@ -340,6 +340,41 @@ function CallerCard({ caller, rank }) {
           text-transform: uppercase;
           letter-spacing: 0.05em;
         }
+
+        @media (max-width: 768px) {
+          .caller-card {
+            flex-wrap: wrap;
+            gap: 0.75rem;
+          }
+
+          .caller-main {
+            flex: 1 1 auto;
+            min-width: 150px;
+          }
+
+          .caller-stats {
+            width: 100%;
+            justify-content: space-around;
+            padding-top: 0.75rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+          }
+        }
+
+        @media (max-width: 480px) {
+          .caller-avatar {
+            width: 38px;
+            height: 38px;
+            font-size: 0.75rem;
+          }
+
+          .caller-name {
+            font-size: 0.875rem;
+          }
+
+          .stat-value {
+            font-size: 1rem;
+          }
+        }
       `}</style>
     </div>
   );
@@ -1222,6 +1257,106 @@ export default function Dashboard() {
           0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
           70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
           100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+          .dashboard-header {
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+          }
+
+          .header-title {
+            font-size: 1.5rem;
+          }
+
+          .header-subtitle {
+            font-size: 0.875rem;
+          }
+
+          .header-right {
+            flex-direction: column;
+            width: 100%;
+            gap: 0.75rem;
+          }
+
+          .kpi-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+          }
+
+          .main-grid {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+          }
+
+          .chart-section,
+          .callers-section,
+          .activity-section {
+            padding: 1rem;
+            border-radius: 1.25rem;
+          }
+
+          .section-header {
+            flex-direction: column;
+            gap: 0.75rem;
+            align-items: flex-start;
+          }
+
+          .funnel-stats {
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            padding: 1rem;
+          }
+
+          .funnel-arrow {
+            display: none;
+          }
+
+          .funnel-stat {
+            flex: 1 1 45%;
+            min-width: 80px;
+          }
+
+          .insight-row {
+            grid-template-columns: 1fr;
+          }
+
+          .weekly-metrics {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+          }
+
+          .comparison-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.25rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .kpi-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .header-title {
+            font-size: 1.25rem;
+          }
+
+          .funnel-stat {
+            flex: 1 1 100%;
+          }
+
+          .weekly-metrics {
+            grid-template-columns: 1fr 1fr;
+          }
+
+          .chart-legend {
+            flex-wrap: wrap;
+            gap: 0.5rem;
+          }
         }
       `}</style>
     </div>

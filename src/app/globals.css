@@ -726,6 +726,7 @@ h1, h2, h3, h4, h5, h6 {
   .sm\:flex { display: flex; }
   .sm\:hidden { display: none; }
   .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sm\:block { display: block; }
 }
 
 @media (min-width: 768px) {
@@ -757,6 +758,54 @@ h1, h2, h3, h4, h5, h6 {
   .xl\:inline { display: inline; }
   .xl\:grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   .xl\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+
+/* === Mobile-First Responsive Helpers === */
+@media (max-width: 1024px) {
+  .hide-on-tablet {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+  
+  .show-on-mobile {
+    display: block !important;
+  }
+  
+  .mobile-stack {
+    flex-direction: column !important;
+  }
+  
+  .mobile-full-width {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .mobile-text-center {
+    text-align: center !important;
+  }
+  
+  .mobile-gap-sm {
+    gap: 0.5rem !important;
+  }
+  
+  .mobile-p-sm {
+    padding: 0.75rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hide-on-small-mobile {
+    display: none !important;
+  }
+  
+  .small-mobile-stack {
+    flex-direction: column !important;
+  }
 }
 
 /* === Custom Scrollbar === */
